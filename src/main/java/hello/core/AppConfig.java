@@ -22,6 +22,7 @@ public class AppConfig {
 
     @Bean
     private static MemberRepository memberRepository() {
+        System.out.println("call AppConfig.orderService");
         return new MemoryMemberRepository();
     }
 

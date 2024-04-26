@@ -7,7 +7,10 @@ public class MemberServiceImpl implements MemberService{
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
-
+    //Test
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
     @Override
     public void join(Member member) {
         memberRepository.save(member);

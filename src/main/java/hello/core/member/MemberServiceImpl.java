@@ -1,15 +1,16 @@
 package hello.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberServiceImpl implements MemberService{
 
     private final MemberRepository memberRepository;
 
+    @Autowired // ac.getBean(MemberRepository.class)
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
-    }
-    //Test
-    public MemberRepository getMemberRepository() {
-        return memberRepository;
     }
     @Override
     public void join(Member member) {
@@ -19,5 +20,9 @@ public class MemberServiceImpl implements MemberService{
     @Override
     public Member findMember(Long memberId) {
         return memberRepository.findById(memberId);
+    }
+    //Test
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
     }
 }
